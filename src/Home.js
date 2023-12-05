@@ -7,8 +7,15 @@ import './App.css';
 import MenuItem from '@mui/material/MenuItem';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Stack, TextField } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as React from 'react';
+
+
+
+
+
+
+  
 
 
 const lab = [
@@ -49,9 +56,23 @@ const Home = () => {
     const closepopup=()=>{
         openchange(false);
     }
+
     
+    let [sanctions, setSanctions] = useState([])
+
+    useEffect(() => {
+        getSanctions()
+    }, [])
 
 
+    let getSanctions = async () => {
+
+        let response = await fetch('api/sanctions/')
+        let data = await response.json()
+        console.log ('DATA:', data)
+        setSanctions(data)
+    }
+    
 
     return ( 
         
@@ -90,7 +111,11 @@ const Home = () => {
                 <DialogContent>
                     {/* <DialogContentText>Do you want remove this user?</DialogContentText> */}
                     <Stack spacing={2} margin={2}>
-                      <TextField variant="outlined" label="Name"></TextField>
+
+                      
+                      <TextField variant="outlined" label="Name"> {sanctions.map((sanction, index) => (
+                     <span key={index}>{sanction.body}</span>
+                ))}</TextField>
 
                      
                 
@@ -163,8 +188,10 @@ const Home = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td> 1 </td>
-                            <td> Jayson Radores </td>
+                            <td> 1  </td>
+                            <td> {sanctions.map((sanction, index) => (
+                     <span key={index}>{sanction.body}</span>
+                ))} </td>
                             <td> Nov 25, 2023 </td>
                             <td> 2:34 PM </td>
                             <td> ADV 103-3B </td>
