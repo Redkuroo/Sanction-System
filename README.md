@@ -5,6 +5,53 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+ 
+ # HCDC IT Lab Sanction System
+ 
+ ## Overview
+ This project is a web-based system for managing IT lab sanction requests at HCDC. It streamlines the process of submitting, reviewing, and approving lab usage requests, making it easier for students and staff to access IT resources efficiently.
+ 
+ ## Features
+ - Submit lab sanction requests online
+ - Review and approve requests
+ - User-friendly dashboard
+ - Search and filter requests
+ - Responsive design
+ 
+ ## Technologies Used
+ - React.js
+ - JavaScript
+ - CSS
+ 
+ ## Folder Structure
+ ```
+ sanction-system/
+ ├── public/         # Static files and assets
+ ├── src/            # Source code (React components, images)
+ │   ├── App.js      # Main app component
+ │   ├── Home.js     # Home page component
+ │   ├── App.css     # Styles
+ │   └── ...         # Other assets and components
+ ├── package.json    # Project dependencies and scripts
+ └── README.md       # Project documentation
+ ```
+ 
+ ## Getting Started
+ 1. **Install dependencies:**
+	 ```powershell
+	 npm install
+	 ```
+ 2. **Run the development server:**
+	 ```powershell
+	 npm start
+	 ```
+ 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+ 
+ ## Contribution
+ Contributions are welcome! Please fork the repository and submit a pull request. For major changes, open an issue first to discuss what you would like to change.
+ 
+ ## License
+ This project is licensed under the MIT License.
 
 ### `npm start`
 

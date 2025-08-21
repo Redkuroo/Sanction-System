@@ -72,7 +72,8 @@ const Home = () => {
         console.log ('DATA:', data)
         setSanctions(data)
     }
-    
+
+   
 
     return ( 
         
@@ -190,32 +191,23 @@ const Home = () => {
                         <tr>
                             <td> 1  </td>
                             <td> {sanctions.map((sanction, index) => (
-                     <span key={index}>{sanction.body}</span>
+                     <span key={index}>{sanction.name}</span>
                 ))} </td>
-                            <td> Nov 25, 2023 </td>
+                            <td> {sanctions.map((sanction, index) => (
+                     <span key={index}>{sanction.date}</span>
+                ))} </td>
                             <td> 2:34 PM </td>
                             <td> ADV 103-3B </td>
                             <td> 3 </td>
                             <td><p class="status cancelled">Facebook</p></td>
-                            <td><button onClick={() => (1)}>  <img src={deleteIcon} alt="Icon" /> </button>
-                            
-                            <button style={{ marginLeft: '10px' }} onClick={() => (1)}>  <img src={editIcon} alt="Icon" /> </button></td>
-                            <td>  </td>
+                            <td><button onClick={() => (1)}>  <img src={deleteIcon} alt="Icon" /> </button> </td>
+            
+                           
+                            <td>  <button style={{ marginLeft: '10px' }} onClick={functionopenpopup}> <img src={editIcon} alt="Icon" /> </button></td>
                   
                          </tr>
     
-                         <tr>
-                            <td> 2 </td>
-                            <td> Albert Villarmia </td>
-                            <td> Nov 27, 2023 </td>
-                            <td> 5:34 PM </td>
-                            <td> SIA 101-3B </td>
-                            <td> 2 </td>
-                            <td><p class="status cancelled">Games</p></td>
-                            <td><button onClick={() => (1)}>  <img src={deleteIcon} alt="Icon" /> </button>
-                            <button style={{ marginLeft: '10px' }} onClick={() => (1)}>  <img src={editIcon} alt="Icon" /> </button></td>
-                            <td>  </td>
-                        </tr>
+                        
                        
     
                       
