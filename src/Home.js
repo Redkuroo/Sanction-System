@@ -77,145 +77,117 @@ const Home = () => {
 
     return ( 
         
-        <main class="table" id="student_table">
-        <section class="table__header">
-        <img src={logo} alt="Logo" className="logo" />
-    <h1>List of Sanctioned Students</h1>
-    
-          <div class="input-group">
-          <input type="search" placeholder="Search Data..."/>
-          <img src={search} alt=""/>
-          </div>
-          
-            </section>
-            <section class="table__body">
-                <table>
-                    <thead>
-                        <tr>
-                            <th> Id </th>
-                            <th> Name</th>
-                            <th> Date </th>
-                            <th> Time </th>
-                            <th> Subject & Section</th>
-                            <th> Lab </th>
-                            <th> Reason </th>
-                            <th> Action </th>
-                       
-                                
-            
-         
-       <th>  <button onClick={functionopenpopup} color="primary" variant="contained"><img src={addIcon} alt="Icon" /></button></th>
-            <Dialog 
-            // fullScreen 
-            open={open} onClose={closepopup} fullWidth maxWidth="sm">
-                <DialogTitle>Sanctioned Student Info<IconButton onClick={closepopup} style={{float:'right'}}><CloseIcon color="primary"></CloseIcon></IconButton>  </DialogTitle>
-                <DialogContent>
-                    {/* <DialogContentText>Do you want remove this user?</DialogContentText> */}
-                    <Stack spacing={2} margin={2}>
-
-                      
-                      <TextField variant="outlined" label="Name"> {sanctions.map((sanction, index) => (
-                     <span key={index}>{sanction.body}</span>
-                ))}</TextField>
-
-                     
-                
-     
-   
-    
-
-
-        <TextField variant="outlined" label="Date"></TextField>
-                      <TextField variant="outlined" label="Time"></TextField>
-                      <TextField variant="outlined" label="Subject & Section"></TextField>
-                      <TextField
-          id="outlined-select-lab"
-          select
-          label="Lab"
-          defaultValue="1"
-         
-        >
-          {lab.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-
-  
-    
-        </TextField>
-
-        <TextField
-          id="outlined-select-reason"
-          select
-          label="Reason"
-        
-         
-        >
-          {reason.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-
-  
-    
-        </TextField>
-
-                    
-                    
-       <Button
-  style={{
-    backgroundColor: '#2B3467',
-    color: '#f8f9fa',
-    fontSize: '1.5rem', // Increase the font size as needed
-    borderRadius: '10px', // Adjust the border radius as needed
-    fontWeight: 'bold',
-  }}
-  variant="contained"
->
-  Submit
-</Button>
-                    </Stack>
-                </DialogContent>
-                <DialogActions>
-                {/* <Button color="success" variant="contained">Yes</Button>
-                    <Button onClick={closepopup} color="error" variant="contained">Close</Button> */}
-                </DialogActions>
-            </Dialog>
-                         
-                           
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td> 1  </td>
-                            <td> {sanctions.map((sanction, index) => (
-                     <span key={index}>{sanction.name}</span>
-                ))} </td>
-                            <td> {sanctions.map((sanction, index) => (
-                     <span key={index}>{sanction.date}</span>
-                ))} </td>
-                            <td> 2:34 PM </td>
-                            <td> ADV 103-3B </td>
-                            <td> 3 </td>
-                            <td><p class="status cancelled">Facebook</p></td>
-                            <td><button onClick={() => (1)}>  <img src={deleteIcon} alt="Icon" /> </button> </td>
-            
-                           
-                            <td>  <button style={{ marginLeft: '10px' }} onClick={functionopenpopup}> <img src={editIcon} alt="Icon" /> </button></td>
-                  
-                         </tr>
-    
-                        
-                       
-    
-                      
-                       
-                    </tbody>
-                    </table>
-        </section>
-      </main>
+        <main className="table responsive-table" id="student_table">
+          <section className="table__header responsive-header">
+            <img src={logo} alt="Logo" className="logo" />
+            <h1 style={{ fontSize: 'clamp(1.2rem, 4vw, 2.5rem)', margin: '1rem 0' }}>List of Sanctioned Students</h1>
+            <div className="input-group responsive-input-group">
+              <input type="search" placeholder="Search Data..." style={{ fontSize: '1rem', padding: '0.5rem' }} />
+              <img src={search} alt="" />
+            </div>
+          </section>
+          <section className="table__body responsive-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Subject & Section</th>
+                  <th>Lab</th>
+                  <th>Reason</th>
+                  <th>Action</th>
+                  <th>
+                    <button onClick={functionopenpopup} color="primary" variant="contained">
+                      <img src={addIcon} alt="Icon" />
+                    </button>
+                  </th>
+                  <Dialog open={open} onClose={closepopup} fullWidth maxWidth="sm">
+                    <DialogTitle>
+                      Sanctioned Student Info
+                      <IconButton onClick={closepopup} style={{ float: 'right' }}>
+                        <CloseIcon color="primary" />
+                      </IconButton>
+                    </DialogTitle>
+                    <DialogContent>
+                      <Stack spacing={2} margin={2}>
+                        <TextField variant="outlined" label="Name">
+                          {sanctions.map((sanction, index) => (
+                            <span key={index}>{sanction.body}</span>
+                          ))}
+                        </TextField>
+                        <TextField variant="outlined" label="Date" />
+                        <TextField variant="outlined" label="Time" />
+                        <TextField variant="outlined" label="Subject & Section" />
+                        <TextField id="outlined-select-lab" select label="Lab" defaultValue="1">
+                          {lab.map((option) => (
+                            <MenuItem key={option.value} value={option.value}>
+                              {option.label}
+                            </MenuItem>
+                          ))}
+                        </TextField>
+                        <TextField id="outlined-select-reason" select label="Reason">
+                          {reason.map((option) => (
+                            <MenuItem key={option.value} value={option.value}>
+                              {option.label}
+                            </MenuItem>
+                          ))}
+                        </TextField>
+                        <Button
+                          style={{
+                            backgroundColor: '#2B3467',
+                            color: '#f8f9fa',
+                            fontSize: 'clamp(1rem, 3vw, 1.5rem)',
+                            borderRadius: '10px',
+                            fontWeight: 'bold',
+                            width: '100%',
+                            marginTop: '1rem',
+                          }}
+                          variant="contained"
+                        >
+                          Submit
+                        </Button>
+                      </Stack>
+                    </DialogContent>
+                    <DialogActions></DialogActions>
+                  </Dialog>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {sanctions.map((sanction, index) => (
+                      <span key={index}>{sanction.name}</span>
+                    ))}
+                  </td>
+                  <td>
+                    {sanctions.map((sanction, index) => (
+                      <span key={index}>{sanction.date}</span>
+                    ))}
+                  </td>
+                  <td>2:34 PM</td>
+                  <td>ADV 103-3B</td>
+                  <td>3</td>
+                  <td>
+                    <p className="status cancelled">Facebook</p>
+                  </td>
+                  <td>
+                    <button onClick={() => (1)}>
+                      <img src={deleteIcon} alt="Icon" />
+                    </button>
+                  </td>
+                  <td>
+                    <button style={{ marginLeft: '10px' }} onClick={functionopenpopup}>
+                      <img src={editIcon} alt="Icon" />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+  </main>
      );
 }
  
