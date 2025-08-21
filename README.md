@@ -9,7 +9,7 @@ In the project directory, you can run:
  # HCDC IT Lab Sanction System
  
  ## Overview
- This project is a web-based system for managing IT lab sanction requests at HCDC. It streamlines the process of submitting, reviewing, and approving lab usage requests, making it easier for students and staff to access IT resources efficiently.
+ This project was made during my Student assistant days, a web-based system for managing IT lab sanction requests at HCDC. It streamlines the process of submitting, reviewing, and approving lab sanctions from students, making it easier for students and staff.
  
  ## Features
  - Submit lab sanction requests online
